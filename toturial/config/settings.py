@@ -32,6 +32,7 @@ ALLOWED_HOSTS = ['127.0.0.1']
 # Application definition
 #  앱이 만들어지면 이곳에 항상 등록하기 
 INSTALLED_APPS = [
+    "mysqlapp",
     "frontapp",
     "secondapp",
     "firstapp",
@@ -79,9 +80,51 @@ WSGI_APPLICATION = "config.wsgi.application"
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 # 데이터베이스 연결 설정하는 곳 
 DATABASES = {
+    # SQLite3 데이터 베이스는 디폴트로 사용 
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
         "NAME": BASE_DIR / "db.sqlite3",
+    },
+    # MySQL DB Server 연동
+    ## "ENGINE" : 데이터베이스 엔진 연결 
+    ## "NAME" : DB 이름
+    ## "USER" : 사용자 이름
+    ## "PASSWORD" : 패스워드 
+    ## "POST" : 로컬 주소
+    ## "PORT" : mysql 연결 포트 
+    # mysql 패키지 설치 해야 함 : pip install mysqlclient 
+    'mysql': {
+        "ENGINE" : "django.db.backends.mysql",
+        "NAME" : 'pknu',
+        "USER" : 'pknu',
+        "PASSWORD" : '0107',
+        "POST" : 'localhost',
+        "PORT" : '3306',
+    }
+    
+}
+
+# default가 아닌 다르 DB를 사용 시에는 아래 리스트 추가 
+# [DB를 사용할 앱이름.파일이름.클래스이름]
+DATABASE_ROUTERS = ['mysqlapp.router.DBRouter']
+
+# DB 실행 내용을 프롬포트에서 확인하기 위해 아래 추가 
+LOGGING = {
+    'version' : 1,
+    'disable_existing_loggers' : False,
+    
+    'handlers' : {
+        'console' : {
+            'level' : 'DEBUG',
+            'class' : 'logging.StreamHandler',
+        }
+    },
+    
+    'loggers' : {
+        'django.db.backends' : {
+            'handler' : ['console'],
+            'level' : 'DEBUG',
+        }
     }
 }
 

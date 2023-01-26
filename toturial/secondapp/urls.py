@@ -12,5 +12,7 @@ urlpatterns = [
     # 127.0.0.1:8000/first/xxxx 는 모두 firstapp의 urls가 관리
     path('sample/',views.sample),
     path('main/',views.main),
+    path('login_form/',views.login_form),
+    path('login_form_check/',views.login_form_check),
     
 ]

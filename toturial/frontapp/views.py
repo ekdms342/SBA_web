@@ -61,3 +61,25 @@ def index_bootstrap1 (request) :
     return render(request,
                   'frontapp/index_bootstrap1.html',
                   {})
+    
+def login_form (request) :
+    return render(request,
+                  'frontapp/form/01_form.html',
+                  {})
+    
+# request : 자동 지원 객체 
+def login_form_check (request) :
+    # Get 방식으로 전달 받기 
+    if request.method == 'GET' :
+        mem_id = request.GET["mem_id"]
+        mem_pass = request.GET['mem_pass']
+    
+        #  Post 방식으로 전달 받기
+    elif request.method == 'POST' :
+        mem_id = request.POST["mem_id"]
+        mem_pass = request.POST['mem_pass'] 
+        
+    return render(request,
+                  'frontapp/form/02_form_check.html',
+                  {"mem_id" : mem_id,
+                   "mem_pass" : mem_pass })

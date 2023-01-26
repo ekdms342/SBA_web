@@ -3,66 +3,56 @@
 
 {% load static %}
 <html>
-    <head>
-        <title> ::: index_css2.html ::: </title>
-        <!-- 스타일(Css) 적용하기 2 -->
-        <style>
-            nav {
-                background-color: blueviolet; 
-                font-size: 150%; 
-                text-align:center}
-            nav a {
-                color: aliceblue;
-            }
-        </style>
-    </head>
-    <body>
-        <p>Front Main</P>
-        <!-- html 주석 -->
-        <!-- 네비게이션 (메뉴 카테고리) -->
 
-        <!-- style을 따로 관리 -->
-        <nav>
-            <a href="/front/">home</a> |
-            <a href="/front/blog">Blog</a> |
-            <a href="/front/about_me">About Me</a> |
-            <a href="/front/index_css">Index Css 적용</a> |
-            <a href="/front/index_css2">Index Css2 적용</a>
-        </nav>
+<head>
+    <title> ::: index_bootstrap1.html ::: </title>
+    <!-- 스타일(Css) 적용하기 2 -->
+    <!-- 부트스트랩 css 불러들이기 
+        부트스트랩의 css는 가장 상단과 하단에 정의해야 한다  -->
+    <link rel="stylesheet" herf="{%static '/frontapp/bootstrap4/css/bootstrap.min.css'%}">
+    <!-- 자바스크립트 방법2  -->
+    <script type="text/javascript" src="{%static 'frontapp/JS/index.js' %}">
+    </script>
+</head>
 
+<body>
+    <p>BootStrap1</P>
+    <!-- html 주석 -->
+    <!-- 네비게이션 (메뉴 카테고리) -->
+    <!-- 메뉴구성을 하나의 파일에서 관리하기 -->
+    {% include 'frontapp/include/nav_bootstrap.html' %}
 
-        <!-- 라인 그리기 -->
+    <!-- 라인 그리기 -->
+    <hr>
+    <div class="container">
+         <!-- 버튼이 클릭되면 현재 시간 팝업안내창으로 띄우기  -->
+        <button id="time" onclick="viewTime()">현재시간 알려주세요!</button>
         <hr>
-        <br>
-        <!-- 제목 태그 -->
-        <h1>가장큰 제목</h1>
-        <h2>222</h2>
-        <h3>333</h3>
-        <h4>444</h4>
-        <h5>555</h5>
-        <!-- 문단을 나타내는 태그 -->
-        <p>문단을 나눌때는 p tag </p>
-        <p>문단을 나눌 때는 p tag 사용
-            여기도 문단...문단을 나눌 때는 p tag 사용
-            여기도 문단...문단을 나눌 때는 p tag 사용
-            여기도 문단...문단을 나눌 때는 p tag 사용
-            여기도 문단...문단을 나눌 때는 p tag 사용
-            여기도 문단...
-        </p>
-        <!-- 링크 태그 -->
-        <a href="https://www.google.com">Go google</a> |
-        <!-- /: 내 도메인을 의미  -->
-        <a href="/front/sample">Go index</a>
-        <br>
-        <!-- 이미지 넣기 -->
-        <img src="https://images.pexels.com/photos/45201/kitty-cat-kitten-pet-45201.jpeg?cs=srgb&dl=pexels-pixabay-45201.jpg&fm=jpg" 
-        width="250" height="100">
-        <!-- static을 이용행 이미지 넣기 -->
-        <img src="{%static 'frontapp/images/cat.jpg' %}" width="200" height="100">
-     
-        
 
-    </body>
+        <!-- 자바스크립트가 처리할 태그들 정의 -->
+        <!-- onkeyup : 키보드를 떼는 순간 함수(doSumething)를 호출 할거다 -->
+        <label for="inputA">a</label>
+        <input type="text" id="inputA" value="1" onkeyup="doSumething();">
+
+        <label for="inputB">b</label>
+        <input type="text" id="inputB" value="2" onkeyup="doSumething();">
+
+        <p>
+            <span id="valueA">1</span> +
+            <span id="valueB">2</span> =
+            <span id="valueC">3</span> 입니다
+        </p>
+    </div>
+    
+
+
+
+    <!-- bootstrap javascript 코드 추가.. -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+        crossorigin="anonymous"></script>
+</body>
 
 </html>
-

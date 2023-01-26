@@ -22,4 +22,6 @@ urlpatterns = [
     path('index_javascript1/',views.index_javascript1),
     path('index_javascript2/',views.index_javascript2),
     path('index_bootstrap1/',views.index_bootstrap1),
+    path('login_form/',views.login_form),
+    path('login_form_check/',views.login_form_check),
 ]

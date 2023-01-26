@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>::: 주문정보상세조회 :::</title>
+</head>
+<body>
+    <h1>주문정보 상세정보</h1>
+    <table border="1">
+        <tr>
+            <th align="certer">주문번호</th>
+            <th align="certer">회원아이디</th>
+            <th align="certer">상품코드</th>
+            <th align="certer">주문수량</th>
+        </tr>
+        
+        <tr>
+        
+            <td align="center">{{ cart_view.cart_no }}</td>
+            <td align="center">{{ cart_view.cart_member }}</td>
+            <td align="center">{{ cart_view.cart_prod }}</td>
+            <td align="center">{{ cart_view.cart_qty }}</td>
+
+        </tr>
+        
+    </table>
+</body>
+</html>
