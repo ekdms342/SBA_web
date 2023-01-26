@@ -1,0 +1,10 @@
+/* 모든 nav 태그 */
+nav {
+    background-color: blueviolet; 
+    font-size: 80%;
+    text-align:center
+}
+/* nav 태그 안의 모든 a 태그 */
+nav a {
+    color: aliceblue;
+}
