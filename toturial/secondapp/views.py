@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from .models import Iprod
 
 def main(request) :
     return HttpResponse('<u>Main</u>')
@@ -29,4 +30,15 @@ def login_form_check(request) :
                   {"mem_id" : mem_id,
                    "mem_pass" : mem_pass})
 
+def iprod_list (request) :
+    lprod_list = Iprod.objects.all()
+    
+    return render(
+        request,
+        "secondapp/iprod/iprod_list.html",
+        {"lprod_list" : lprod_list}
+    )
+
+
+    
 # Create your views here.

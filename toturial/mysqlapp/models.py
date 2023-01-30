@@ -17,3 +17,19 @@ class Cart(models.Model) :
         app_label = "mysqlapp"
         #  테이블의 실제 Db에 존재하면 False (보통 False사용)
         managed = False
+        
+        
+class Member(models.Model) :
+    # 실제 DB와 동일하게 지정 
+    mem_id = CharField(primary_key=True, max_length=15, null=False)
+    mem_pass = CharField(max_length=15, null=False)
+    mem_name = CharField(max_length=10, null=False)
+    
+    # DB 속성 정의 : 클래스 이름 및 변수이름 변경 불가 
+    class Meta :
+        #  사용할 실제 테이블 이름(mysql상의 이름) 지정 
+        db_table = "member"
+        #  현재 model을 사용할 앱 지정 
+        app_label = "mysqlapp"
+        #  테이블의 실제 Db에 존재하면 False (보통 False사용)
+        managed = False

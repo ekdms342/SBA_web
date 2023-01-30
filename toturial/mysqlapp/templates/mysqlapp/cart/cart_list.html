@@ -1,23 +1,33 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>::: 주문정보-전체조회 :::</title>
     <script type="text/javascript">
         //주문 상세 정보 페이지로 이동하기 
         function goView(cart_no, cart_prod) {
-           // alert(cart_no);
-           // alert(cart_prod);
-           // get 방식으로 넘기기 (fom 태그 사용할 경우 post전송사용)
-           url ="/mysql/cart_view/?";
-           url = url + "cart_no=" + cart_no + "&cart_prod=" + cart_prod;
-           //alert(url)
-           location.href = url;
+            // alert(cart_no);
+            // alert(cart_prod);
+            // get 방식으로 넘기기 (fom 태그 사용할 경우 post전송사용)
+            url = "/mysql/cart_view/?";
+            url = url + "cart_no=" + cart_no + "&cart_prod=" + cart_prod;
+            //alert(url)
+            location.href = url;
+        }
+        function goInsert() {
+            //alert('goInsert');
+            url = "/mysql/cart_insert_form/";
+            location.href = url;
         }
 
     </script>
 </head>
+
 <body>
     <h1>주문정보 전체정보</h1>
+    <hr>
+    <!-- 입력 이벤트 버튼 : goInsert()-->
+    <input value="글쓰기" type="button" onclick="goInsert()">
     <table border="1">
         <tr>
             <th align="certer">주문번호</th>
@@ -41,4 +51,5 @@
         {% endfor %}
     </table>
 </body>
+
 </html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <title>:::Member_List:::</title>
+    <script type="text/javascript">
+        function goView(mem_id){
+            // alert(cart_no);
+            //alert(mem_id);
+            // get 방식으로 넘기기 (fom 태그 사용할 경우 post전송사용)
+            url = "/member/member_view/?";
+            url = url + "mem_id=" + mem_id;
+            //alert(url)
+            location.href = url;
+        }
+        function goInsert() {
+            url = "/member/member_insert_form/";
+            location.href = url;
+        }
+
+    </script>
+</head>
+<body>
+    <h1>회원 전체 조회</h1>
+    <hr>
+    <input type="button" value="입력하기" onClick="goInsert()">
+    <table border="1">
+        <tr>
+            <th align="center">회원ID</th>
+            <th align="center">회원 비밀번호</th>
+            <th align="center">성명</th>
+            <th align="center">주민번호 앞 6자리</th>
+            <th align="center">주민번호 뒤 7자리</th>
+            <th align="center">생일</th>
+            <th align="center">우편번호</th>
+            <th align="center">주소1</th>
+            <th align="center">주소2</th>
+            <th align="center">집전화번호</th>
+            <th align="center">회사전화번호</th>
+            <th align="center">이동전화</th>
+            <th align="center">이메일 주소</th>
+            <th align="center">직업</th>
+            <th align="center">취미</th>
+            <th align="center">기념일명</th>
+            <th align="center">기념일날짜</th>
+            <th align="center">마일리지</th>
+            <th align="center">삭제여부</th>
+        </tr>
+        {% for member in member_list %}
+        <tr>
+            <td align="center">
+                <a href="javascript:goView('{{member.mem_id}}')">
+                    {{ member.mem_id }}        
+                </a>
+            </td>
+            <td align="center">{{member.mem_pass}}</td>
+            <td align="center">{{member.mem_name}}</td>
+            <td align="center">{{member.mem_regno1}}</td>
+            <td align="center">{{member.mem_regno2}}</td>
+            <td align="center">{{member.mem_bir}}</td>
+            <td align="center">{{member.mem_zip}}</td>
+            <td align="center">{{member.mem_add1}}</td>
+            <td align="center">{{member.mem_add2}}</td>
+            <td align="center">{{member.mem_hometel}}</td>
+            <td align="center">{{member.mem_comtel}}</td>
+            <td align="center">{{member.mem_hp}}</td>
+            <td align="center">{{member.mem_mail}}</td>
+            <td align="center">{{member.mem_job}}</td>
+            <td align="center">{{member.mem_like}}</td>
+            <td align="center">{{member.mem_memorial}}</td>
+            <td align="center">{{member.mem_memorialday}}</td>
+            <td align="center">{{member.mem_mileage}}</td>
+            <td align="center">{{member.mem_delete}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

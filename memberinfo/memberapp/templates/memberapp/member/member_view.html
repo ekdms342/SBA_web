@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <title>:::Member_List:::</title>
+    <script type="text/javascript">
+        function goUpdate(){
+            fm = document.getElementById('fm');
+            fm.action = "/member/member_update_view/";
+            fm.submit();
+        }
+        function goDelete() {
+            fm = document.getElementById('fm');
+            fm.action = "/member/member_delete/"
+            fm.submit();
+        }
+        function goBack () {
+            location.href = "member/member_list"
+        }
+
+
+    </script>
+</head>
+<body>
+    <h1>회원 전체 조회</h1>
+    <hr>
+    <form action="#" name="fm" id ="fm" method= "post">
+        {% csrf_token  %}
+        <table border="1">
+            <tr>
+                <th align="center">회원ID</th>
+                <th align="center">회원 비밀번호</th>
+                <th align="center">성명</th>
+                <th align="center">주민번호 앞 6자리</th>
+                <th align="center">주민번호 뒤 7자리</th>
+                <th align="center">생일</th>
+                <th align="center">우편번호</th>
+                <th align="center">주소1</th>
+                <th align="center">주소2</th>
+                <th align="center">집전화번호</th>
+                <th align="center">회사전화번호</th>
+                <th align="center">이동전화</th>
+                <th align="center">이메일 주소</th>
+                <th align="center">직업</th>
+                <th align="center">취미</th>
+                <th align="center">기념일명</th>
+                <th align="center">기념일날짜</th>
+                <th align="center">마일리지</th>
+                <th align="center">삭제여부</th>
+            </tr>
+            <tr>
+                <td align="center">{{ member_view.mem_id }}</td>
+                <td align="center">{{member_view.mem_pass}}</td>
+                <td align="center">{{member_view.mem_name}}</td>
+                <td align="center">{{member_view.mem_regno1}}</td>
+                <td align="center">{{member_view.mem_regno2}}</td>
+                <td align="center">{{member_view.mem_bir}}</td>
+                <td align="center">{{member_view.mem_zip}}</td>
+                <td align="center">{{member_view.mem_add1}}</td>
+                <td align="center">{{member_view.mem_add2}}</td>
+                <td align="center">{{member_view.mem_hometel}}</td>
+                <td align="center">{{member_view.mem_comtel}}</td>
+                <td align="center">{{member_view.mem_hp}}</td>
+                <td align="center">{{member_view.mem_mail}}</td>
+                <td align="center">{{member_view.mem_job}}</td>
+                <td align="center">{{member_view.mem_like}}</td>
+                <td align="center">{{member_view.mem_memorial}}</td>
+                <td align="center">{{member_view.mem_memorialday}}</td>
+                <td align="center">{{member_view.mem_mileage}}</td>
+                <td align="center">{{member_view.mem_delete}}</td>
+            </tr>
+        </table>
+        <br>
+        <input type="button" onclick="goUpdate('{{ member_view.mem_id }}')" value="수정">
+        <input type="button" onclick="goDelete ('{{ member_view.mem_id }}')" value="삭제">
+        <input type="button" onclick="goBack()" value="목록가기">
+    </form>
+</body>
+</html>

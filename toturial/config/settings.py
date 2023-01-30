@@ -106,7 +106,7 @@ DATABASES = {
 
 # default가 아닌 다르 DB를 사용 시에는 아래 리스트 추가 
 # [DB를 사용할 앱이름.파일이름.클래스이름]
-DATABASE_ROUTERS = ['mysqlapp.router.DBRouter']
+DATABASE_ROUTERS = ['mysqlapp.router.DBRouter', 'secondapp.router.DBRouter', ]
 
 # DB 실행 내용을 프롬포트에서 확인하기 위해 아래 추가 
 LOGGING = {
