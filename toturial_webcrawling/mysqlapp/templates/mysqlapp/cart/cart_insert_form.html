@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>::: 주문정보상세조회 :::</title>
+    <script type="text/javascript">
+        // 취소
+        function goBack () {
+            history.go(-1);
+        }
+
+        function goInsert() {
+            //alert('goInsert');
+            fm = document.getElementById('fm');
+            //alert(fm.cart_no.value);
+            fm.action = "/mysql/cart_insert/";
+            fm.submit();
+        }
+
+    </script>
+</head>
+<body>
+    <!-- name을 가지는 것들의 값을 넘겨준다 -->
+    <!-- #은 사용안하겠다 --> 
+    <form action="#" id="fm" name="fm" method="post">
+        <!-- 메시지 받을 거면 무조건 token 처리 해줘야 한다 -->
+        {% csrf_token %}
+        
+        <h1>주문정보 글쓰기</h1>
+        <table border="1">
+            <tr>
+                <th align="certer">주문번호</th>
+                <th align="certer">회원아이디</th>
+                <th align="certer">상품코드</th>
+                <th align="certer">주문수량</th>
+            </tr>
+            
+            <tr>
+                <td align="center"><input type="text" name="cart_no" value="2023012700001"></td>
+                <td align="center"><input type="text" name ="cart_member" value="a001"></td>
+                <td align="center"><input type="text" name="cart_prod" value="P101000001"></td>
+                <td align="center"><input type="text" name="cart_qty" value="12"></td>
+            </tr> 
+        </table> <br>
+        <input type="button" onClick="goInsert()" value="저장하기">
+        <input type="button" onClick="goBack()" value="취소">
+    </form>
+</body>
+</html>

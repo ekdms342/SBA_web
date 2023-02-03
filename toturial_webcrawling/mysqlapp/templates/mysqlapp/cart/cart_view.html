@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>::: 주문정보상세조회 :::</title>
+    <script type="text/javascript">
+        function goUpdate(){
+            // form 태그 안의 cart_no와 cart_pord의 값을 alert를 이용해 확인해 주세요 
+            fm = document.getElementById('fm');
+            fm.action = "/mysql/cart_update_view/";
+            fm.submit();
+            //cart_no = fm.cart_no;
+            //cart_prod = fm.cart_prod;
+            //alert(cart_no);
+            //alert(cart_prod);
+        }
+
+        function goDelete (cart_no, cart_prod) {
+            fm = document.getElementById('fm');
+            fm.action = "/mysql/cart_delete/";
+            fm.submit();
+        }
+
+        function goBack () {
+            //alert("goBack");
+            // 리스트로 다시 가기 
+            // history.go(-1) : 뒤로 하나 이동하기 
+            //history.go(-1);
+            //history.back();
+            // 일반적으로 많이 사용 X
+            location.href = "/mysql/cart_list"
+        }
+
+
+    </script>
+</head>
+<body>
+    <form action="#" name="fm" id="fm" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="cart_no" value="{{ cart_view.cart_no }}" >
+        <input type="hidden" name="cart_prod" value="{{ cart_view.cart_prod }}" >
+    </form>
+    <h1>주문정보 상세정보</h1>
+    <table border="1">
+        <tr>
+            <th align="certer">주문번호</th>
+            <th align="certer">회원아이디</th>
+            <th align="certer">상품코드</th>
+            <th align="certer">주문수량</th>
+        </tr>
+        
+        <tr>
+        
+            <td align="center">{{ cart_view.cart_no }}</td>
+            <td align="center">{{ cart_view.cart_member }}</td>
+            <td align="center">{{ cart_view.cart_prod }}</td>
+            <td align="center">{{ cart_view.cart_qty }}</td>
+
+        </tr>
+        
+    </table> <br>
+    <!-- 수정/삭제/목록가기 이벤트를 위한 버튼  -->
+    <!-- 수정 이벤트 처리함수 : goUpdate() -->
+    <!-- 삭제 이벤트 처리 함수 : goDelete() -->
+    <!-- 몰로가기 이벤트 처리 함수 : goBack() -->
+    <!-- <button onclick= "goUpdate('{{cart_view.cart_no}}','{{cart_view.cart_prod}}')">
+        수정
+    </button>
+    <button onclick= "goDelete('{{cart_view.cart_no}}','{{cart_view.cart_prod}}')">
+        삭제
+    </button>
+    <button onclick= "goBack('{{cart_view.cart_no}}','{{cart_view.cart_prod}}')">
+        목록가기
+    </button> -->
+
+    <input type="button" onClick="goUpdate('{{cart_view.cart_no}}','{{cart_view.cart_prod}}')" value="수정">
+    <input type="button" onClick="goDelete('{{cart_view.cart_no}}','{{cart_view.cart_prod}}')" value="삭제">
+    <input type="button" onClick="goBack()" value="목록가기">
+</body>
+</html>
