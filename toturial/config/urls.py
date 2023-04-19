@@ -24,6 +24,7 @@ urlpatterns = [
     #  함수내부의 내용을 리턴(응답)한다 
     
     # 127.0.0.1:8000/first/xxxx 는 모두 firstapp의 urls가 관리
+    path('ml/',include('ml.urls')),
     path('mysql/',include('mysqlapp.urls')),
     path('front/',include('frontapp.urls')),
     path('second/',include('secondapp.urls')),

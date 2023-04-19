@@ -32,6 +32,7 @@ ALLOWED_HOSTS = ['127.0.0.1']
 # Application definition
 #  앱이 만들어지면 이곳에 항상 등록하기 
 INSTALLED_APPS = [
+    "ml",
     "mysqlapp",
     "frontapp",
     "secondapp",
