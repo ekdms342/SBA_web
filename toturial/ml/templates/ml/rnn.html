@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<head>
+
+    <title>:::입력 받기 :::</title>
+    <script type="text/javascript">
+        function goInsert() {
+            //alert('goInsert');
+            fm = document.getElementById('fm');
+            //alert(fm.cart_no.value);
+            fm.action = "/ml/predict/";
+            fm.submit();
+        }
+
+    </script>
+</head>
+<body>
+    <h1>입력 받기</h1>
+    <form action="#" id="fm" name="fm" method="post">
+        {% csrf_token %}
+        찾을 단어 : <input type="text" name="current_word"><br>
+        n : <input type="number" name="n">
+        <input type="button" onClick="goInsert()" value="저장하기">
+    </form>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!Doctype html>
+<!--  static에서 관리하는 파일에 접근하기 위해서는 아래 load static 을 정의해야 한다  -->
+
+{% load static %}
+<html>
+    <head>
+        <title> ::: index_css.html ::: </title>
+    </head>
+    <body>
+        <p>Front Main</P>
+        <!-- html 주석 -->
+        <!-- 네비게이션 (메뉴 카테고리) -->
+        
+
+        <!-- 메뉴구성을 하나의 파일에서 관리하기 -->
+        {% include 'frontapp/include/nav.html' %}
+
+        <!-- 라인 그리기 -->
+        <hr>
+        <br>
+        <!-- 제목 태그 -->
+        <h1>가장큰 제목</h1>
+        <h2>222</h2>
+        <h3>333</h3>
+        <h4>444</h4>
+        <h5>555</h5>
+        <!-- 문단을 나타내는 태그 -->
+        <p>문단을 나눌때는 p tag </p>
+        <p>문단을 나눌 때는 p tag 사용
+            여기도 문단...문단을 나눌 때는 p tag 사용
+            여기도 문단...문단을 나눌 때는 p tag 사용
+            여기도 문단...문단을 나눌 때는 p tag 사용
+            여기도 문단...문단을 나눌 때는 p tag 사용
+            여기도 문단...
+        </p>
+        <!-- 링크 태그 -->
+        <a href="https://www.google.com">Go google</a> |
+        <!-- /: 내 도메인을 의미  -->
+        <a href="/front/sample">Go index</a>
+        <br>
+        <!-- 이미지 넣기 -->
+        <img src="https://images.pexels.com/photos/45201/kitty-cat-kitten-pet-45201.jpeg?cs=srgb&dl=pexels-pixabay-45201.jpg&fm=jpg" 
+        width="250" height="100">
+        <!-- static을 이용행 이미지 넣기 -->
+        <img src="{%static 'frontapp/images/cat.jpg' %}" width="200" height="100">
+     
+        
+
+    </body>
+
+</html>
+

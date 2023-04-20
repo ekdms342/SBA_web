@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>::: 주문정보상세조회 :::</title>
+    <script type="text/javascript">
+        function goUpdate() {
+            // form 태그 안의 cart_no와 cart_pord의 값을 alert를 이용해 확인해 주세요 
+            fm = document.getElementById('fm');
+            fm.action = "/mysql/cart_update/";
+            fm.submit();
+            //cart_no = fm.cart_no;
+            //cart_prod = fm.cart_prod;
+            //alert(cart_no);
+            //alert(cart_prod);
+        }
+
+        function goDelete(cart_no, cart_prod) {
+            alert("goDelete")
+            alert(cart_no);
+            alert(cart_prod);
+        }
+
+        function goBack() {
+            //alert("goBack");
+            // 리스트로 다시 가기 
+            // history.go(-1) : 뒤로 하나 이동하기 
+            history.go(-1);
+            //history.back();
+            // 일반적으로 많이 사용 X
+            //location.href = "/mysql/cart_list"
+        }
+
+
+    </script>
+</head>
+
+<body>
+    <form action="#" name="fm" id="fm" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="cart_no" value="{{ cart_view.cart_no }}">
+        <input type="hidden" name="cart_prod" value="{{ cart_view.cart_prod }}">
+
+        <h1>주문정보 수정하기</h1>
+        <table border="1">
+            <tr>
+                <th align="certer">주문번호</th>
+                <th align="certer">회원아이디</th>
+                <th align="certer">상품코드</th>
+                <th align="certer">주문수량</th>
+            </tr>
+
+            <tr>
+
+                <td align="center">{{ cart_view.cart_no }}</td>
+                <td align="center">{{ cart_view.cart_member }}</td>
+                <td align="center">{{ cart_view.cart_prod }}</td>
+                <td align="center">
+                    <input type="text" name="cart_qty" value="{{ cart_view.cart_qty }}">
+                </td>
+
+            </tr>
+
+
+            <input type="button" onClick="goUpdate('{{cart_view.cart_no}}','{{cart_view.cart_prod}}')" value="수정">
+            <input type="button" onClick="goBack()" value="목록가기">
+    </form>
+</body>
+
+</html>

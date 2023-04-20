@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <h1>웹 크롤링</h1>
+    <hr>
+    <!-- {{melon_list}} -->
+    <table border = 1>
+        <tr align="center">
+            <th align="center">순위</th>
+            <th align="center">곡제목</th>
+            <th align="center">가수(그룹)</th>
+        </tr>
+        {% for melon in melon_list%}
+        <tr align="center">
+            <td align="center">{{melon.no}}</td>
+            <td align="center">{{melon.title}}</td>
+            <td align="center">{{melon.singer}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

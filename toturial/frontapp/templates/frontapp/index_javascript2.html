@@ -1,0 +1,43 @@
+<!Doctype html>
+<!--  static에서 관리하는 파일에 접근하기 위해서는 아래 load static 을 정의해야 한다  -->
+
+{% load static %}
+<html>
+    <head>
+        <title> ::: index_javascript.html ::: </title>
+        <!-- 자바스크립트 방법2  -->
+        <script type="text/javascript" src="{%static 'frontapp/JS/index.js' %}">
+        </script>
+    </head>
+    <body>
+        <p>Java Script1</P>
+        <!-- html 주석 -->
+        <!-- 네비게이션 (메뉴 카테고리) -->
+        <!-- 메뉴구성을 하나의 파일에서 관리하기 -->
+        {% include 'frontapp/include/nav.html' %}
+
+        <!-- 라인 그리기 -->
+        <hr>
+        <!-- 버튼이 클릭되면 현재 시간 팝업안내창으로 띄우기  -->
+        <button id = "time" onclick="viewTime()">현재시간 알려주세요!</button>
+        <hr>
+
+        <!-- 자바스크립트가 처리할 태그들 정의 -->
+        <!-- onkeyup : 키보드를 떼는 순간 함수(doSumething)를 호출 할거다 -->
+        <label for="inputA">a</label>
+        <input type="text" id="inputA" value="1" onkeyup="doSumething();">
+        
+        <label for="inputB">b</label>
+        <input type="text" id="inputB" value="2" onkeyup="doSumething();">
+
+        <p>
+            <span id="valueA">1</span> +
+            <span id="valueB">2</span> =
+            <span id="valueC">3</span> 입니다
+        </p>
+        
+
+    </body>
+
+</html>
+

@@ -1,0 +1,45 @@
+{% load static %}
+{% load socialaccount %}
+{% providers_media_js %}
+<!DOCTYPE html>
+<head>
+    <title>상품 전체 조회</title>
+</head>
+<body>
+        <h1>상품 전체 조회</h1>
+        <hr>
+        <table border="1">
+            <tr>
+                <th align="center">상품코드</th>
+                <th align="center">상품명</th>
+                <th align="center">상품분류</th>
+                <th align="center">공급업체 </th>
+                <th align="center">판매가</th>
+                <th align="center">상품개략설명</th>
+                <th align="center">상품 상세 설명</th>
+                <th align="center">상품이미지</th>
+                <th align="center">크기</th>
+                <th align="center">색상</th>
+                <th align="center">배달 특이사항</th>
+                <th align="center">개당 마일리지 점수</th>
+            </tr>
+            {% for prod in prod_list %}
+            <tr>
+                <td align="center">{{ prod.prod_id }}</td>
+                <td align="center">{{ prod.prod_name }}</td>
+                <td align="center">{{ prod.prod_lgu }}</td>
+                <td align="center">{{ prod.prod_buyer }}</td>
+                <td align="center">{{ prod.prod_sale }}</td>
+                <td align="center">{{ prod.prod_outline }}</td>
+                <td align="center">{{ prod.prod_detail }}</td>
+                <td align="center">{{ prod.prod_img }}</td>
+                <td align="center">{{ prod.prod_size }}</td>
+                <td align="center">{{ prod.prod_color }}</td>
+                <td align="center">{{ prod.prod_delivery }}</td>
+                <td align="center">{{ prod.prod_mileage }}</td>
+
+            </tr>
+            {% endfor %}
+        </table>
+</body>
+</html>
